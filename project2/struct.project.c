@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <time.h>
 
-// 5¸¶¸®ÀÇ Æ÷ÄÏ¸ó
-// ¾Æ¹« Å°³ª ´­·¯¼­ ·£´ıÀ¸·Î Æ÷ÄÏ¸ó »Ì±â
-// 5¸¶¸®ÀÇ Æ÷ÄÏ¸óÀ» ÀüºÎ ¸ğ¾Æ¼­ ¸ğÇèÀ» ¶°³ª´Â °ÔÀÓ
-// Áßº¹ ¹ß»ı °¡´ÉÇÔ
+// 5ë§ˆë¦¬ì˜ í¬ì¼“ëª¬
+// ì•„ë¬´ í‚¤ë‚˜ ëˆŒëŸ¬ì„œ ëœë¤ìœ¼ë¡œ í¬ì¼“ëª¬ ë½‘ê¸°
+// 5ë§ˆë¦¬ì˜ í¬ì¼“ëª¬ì„ ì „ë¶€ ëª¨ì•„ì„œ ëª¨í—˜ì„ ë– ë‚˜ëŠ” ê²Œì„
+// ì¤‘ë³µ ë°œìƒ ê°€ëŠ¥í•¨
 
-// Æ÷ÄÏ¸ó
-// ÀÌ¸§, ·¹º§, ¼Ó¼º, ¼º°İ, Å°¿ì±â ³­ÀÌµµ
+// í¬ì¼“ëª¬
+// ì´ë¦„, ë ˆë²¨, ì†ì„±, ì„±ê²©, í‚¤ìš°ê¸° ë‚œì´ë„
 
 typedef struct {
 	char* name;
@@ -18,28 +18,28 @@ typedef struct {
 
 } POKETMON;
 
-// ÇöÀç±îÁö º¸À¯ÇÑ Æ÷ÄÏ¸ó
+// í˜„ì¬ê¹Œì§€ ë³´ìœ í•œ í¬ì¼“ëª¬
 int collection[5] = { 0, 0, 0, 0, 0 };
 
-// ÀüÃ¼ Æ÷ÄÏ¸ó ¸®½ºÆ®
+// ì „ì²´ í¬ì¼“ëª¬ ë¦¬ìŠ¤íŠ¸
 POKETMON pokets[5];
 
-void initPokets(); // Æ÷ÄÏ¸ó Á¤º¸ ÃÊ±âÈ­
+void initPokets(); // í¬ì¼“ëª¬ ì •ë³´ ì´ˆê¸°í™”
 void printPoket(int selected);
 
 
 int main(void) {
-	srand(time(NULL));  // #include <time.h> ÇÊ¿äÇÔ
+	srand(time(NULL));  // #include <time.h> í•„ìš”í•¨
 
 	initPokets();
 	while (1) {
 
-		printf("µÎ±Ù µÎ±Ù~! ¾î¶² Æ÷ÄÏ¸óÀÌ ³ª¿Ã±î¿ä¿À¿Ë~?\n ¾Æ¹« Å°³ª ´­·¯¼­ È®ÀÎÇÏ¼¼¿ä!");
-		getchar();   // ¾î¶² Å°°¡ µé¾î¿Ã ¶§±îÁö ´ë±âÇÔ
+		printf("ë‘ê·¼ ë‘ê·¼~! ì–´ë–¤ í¬ì¼“ëª¬ì´ ë‚˜ì˜¬ê¹Œìš”ì˜¤ì˜¹~?\n ì•„ë¬´ í‚¤ë‚˜ ëˆŒëŸ¬ì„œ í™•ì¸í•˜ì„¸ìš”!");
+		getchar();   // ì–´ë–¤ í‚¤ê°€ ë“¤ì–´ì˜¬ ë•Œê¹Œì§€ ëŒ€ê¸°í•¨
 
-		int selected = rand() % 5;  // 0~4 »çÀÌÀÇ ·£´ıÇÑ ¼ıÀÚ ¹İÈ¯
-		printPoket(selected); // ·£´ıÇÏ°Ô »ÌÀº Æ÷ÄÏ¸óÀÇ Á¤º¸ Ãâ·Â 
-		collection[selected] = 1; // Æ÷ÄÏ¸ó »Ì±â Ã³¸®
+		int selected = rand() % 5;  // 0~4 ì‚¬ì´ì˜ ëœë¤í•œ ìˆ«ì ë°˜í™˜
+		printPoket(selected); // ëœë¤í•˜ê²Œ ë½‘ì€ í¬ì¼“ëª¬ì˜ ì •ë³´ ì¶œë ¥ 
+		collection[selected] = 1; // í¬ì¼“ëª¬ ë½‘ê¸° ì²˜ë¦¬
 
 		int collectAll = checkCollection();
 		if (collectAll == 1)
@@ -52,54 +52,54 @@ int main(void) {
 	return 0;
 }
 
-void initPokets() {    //  5¸¶¸® Æ÷ÄÏ¸ó ³»¿ë
-	pokets[0].name = "ÇÇÄ«Ãò";
+void initPokets() {    //  5ë§ˆë¦¬ í¬ì¼“ëª¬ ë‚´ìš©
+	pokets[0].name = "í”¼ì¹´ì¸„";
 	pokets[0].level = 1;
-	pokets[0].attribute = "Àü±â";
-	pokets[0].character = "¿ë°¨ÇÔ";
+	pokets[0].attribute = "ì „ê¸°";
+	pokets[0].character = "ìš©ê°í•¨";
 	pokets[0].nan = 1;
 
-	pokets[1].name = "ÆÄÀÌ¸®";
+	pokets[1].name = "íŒŒì´ë¦¬";
 	pokets[1].level = 2;
-	pokets[1].attribute = "ºÒ²É";
-	pokets[1].character = "¿Â¼øÇÔ";
+	pokets[1].attribute = "ë¶ˆê½ƒ";
+	pokets[1].character = "ì˜¨ìˆœí•¨";
 	pokets[1].nan = 2;
 
-	pokets[2].name = "²¿ºÎ±â";
+	pokets[2].name = "ê¼¬ë¶€ê¸°";
 	pokets[2].level = 3;
-	pokets[2].attribute = "¹°";
-	pokets[2].character = "È°¹ßÇÔ";
+	pokets[2].attribute = "ë¬¼";
+	pokets[2].character = "í™œë°œí•¨";
 	pokets[2].nan = 3;
 
-	pokets[3].name = "ÀÌ»óÇØ¾¾";
+	pokets[3].name = "ì´ìƒí•´ì”¨";
 	pokets[3].level = 4;
-	pokets[3].attribute = "Ç®";
-	pokets[3].character = "¹«¶Ò¶ÒÇÔ";
+	pokets[3].attribute = "í’€";
+	pokets[3].character = "ë¬´ëšëší•¨";
 	pokets[3].nan = 4;
 
-	pokets[4].name = "±¸±¸";
+	pokets[4].name = "êµ¬êµ¬";
 	pokets[4].level = 5;
-	pokets[4].attribute = "¹Ù¶÷";
-	pokets[4].character = "±îÄ¥ÇÔ";
+	pokets[4].attribute = "ë°”ëŒ";
+	pokets[4].character = "ê¹Œì¹ í•¨";
 	pokets[4].nan = 5;
 
 
 }
 
-void printPoket(int selected) // ·£´ıÇÏ°Ô »ÌÀº Æ÷ÄÏ¸óÀÇ Á¤º¸
+void printPoket(int selected) // ëœë¤í•˜ê²Œ ë½‘ì€ í¬ì¼“ëª¬ì˜ ì •ë³´
 {
 
-	printf("\n\n=== ´ç½ÅÀº ÀÌ Æ÷ÄÏ¸óÀÇ ÁÖÀÎÀÌ µÇ¾ú¾î¿ä! ===\n\n");
-	printf(" ÀÌ¸§       : %s\n", pokets[selected].name);
-	printf(" ·¹º§       : %d\n", pokets[selected].level);
-	printf(" ¼Ó¼º       : %s\n", pokets[selected].attribute);
-	printf(" ¼º°İ       : %s\n", pokets[selected].character);
-	printf(" ³­ÀÌµµ     : ");
+	printf("\n\n=== ë‹¹ì‹ ì€ ì´ í¬ì¼“ëª¬ì˜ ì£¼ì¸ì´ ë˜ì—ˆì–´ìš”! ===\n\n");
+	printf(" ì´ë¦„       : %s\n", pokets[selected].name);
+	printf(" ë ˆë²¨       : %d\n", pokets[selected].level);
+	printf(" ì†ì„±       : %s\n", pokets[selected].attribute);
+	printf(" ì„±ê²©       : %s\n", pokets[selected].character);
+	printf(" ë‚œì´ë„     : ");
 
 	for (int i = 0; i < pokets[selected].nan; i++)
 	{
 
-		printf("%s", "¡Ú");
+		printf("%s", "â˜…");
 
 	}
 	printf("\n\n");
@@ -110,29 +110,29 @@ void printPoket(int selected) // ·£´ıÇÏ°Ô »ÌÀº Æ÷ÄÏ¸óÀÇ Á¤º¸
 
 int checkCollection()
 {
-	// ÇöÀç º¸À¯ÇÑ Æ÷ÄÏ¸ñ ¸ñ·Ïµµ Ãâ·Â
-	// Æ÷ÄÏ¸óÀ» ÀüºÎ ¼öÁıÇß´ÂÁö ¿©ºÎ ¹İÈ¯
+	// í˜„ì¬ ë³´ìœ í•œ í¬ì¼“ëª© ëª©ë¡ë„ ì¶œë ¥
+	// í¬ì¼“ëª¬ì„ ì „ë¶€ ìˆ˜ì§‘í–ˆëŠ”ì§€ ì—¬ë¶€ ë°˜í™˜
 	int collectAll = 1;
 
-	printf("\n\n=============== º¸À¯ÇÑ Æ÷ÄÏ¸ó ¸ñ·Ï =============== \n\n");
+	printf("\n\n=============== ë³´ìœ í•œ í¬ì¼“ëª¬ ëª©ë¡ =============== \n\n");
 	
 	for (int i = 0; i < 5; i++)
 	{
-		if (collection[i] == 0)   //  Æ÷ÄÏ¸ó ¼öÁı X
+		if (collection[i] == 0)   //  í¬ì¼“ëª¬ ìˆ˜ì§‘ ì‹¤íŒ¨
 		{
-			printf("%15s", "(ºó Æ÷ÄÏº¼)");
-			collectAll = 0; // ÀüºÎ ¼öÁıÇÏÁö ¸øÇÑ »óÅÂ
+			printf("%15s", "(ë¹ˆ í¬ì¼“ë³¼)");
+			collectAll = 0; // ì „ë¶€ ìˆ˜ì§‘í•˜ì§€ ëª»í•œ ìƒíƒœ
 		}
-		else //  °í¾çÀÌ ¼öÁı O
+		else //  í¬ì¼“ëª¬ ìˆ˜ì§‘ ì™„ë£Œ
 		{
 			printf("%10s", pokets[i].name);
 		}
 	}
 		printf("\n\n==================================================\n\n");
 	
-	if (collectAll)  // ¸ğµç Æ÷ÄÏ¸óÀ» ¼öÁıÇÑ °æ¿ì
+	if (collectAll)  // ëª¨ë“  í¬ì¼“ëª¬ì„ ìˆ˜ì§‘í•œ ê²½ìš°
 	{
-		printf("\n\n ÃàÇÏÇÕ´Ï´Ù! ¸ğµç Æ÷ÄÏ¸óÀ» ´Ù ¾ò¾ú¾î¿ä. ÀÌÁ¦ ¸ğÇè ¶°³ª¼¼¿ä.\n\n");
+		printf("\n\n ì¶•í•˜í•©ë‹ˆë‹¤! ëª¨ë“  í¬ì¼“ëª¬ì„ ë‹¤ ì–»ì—ˆì–´ìš”. ì´ì œ ëª¨í—˜ ë– ë‚˜ì„¸ìš”.\n\n");
 	}
 
 
